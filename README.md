@@ -14,9 +14,9 @@ A Connect IQ data field for Garmin Instinct 2 that lets you tag routes as **Lead
 
 ```shell
 # Build (requires Connect IQ SDK)
-monkeyc -f ~/jottenlips/climb-tagger/monkey.jungle \
-  -o ~/jottenlips/climb-tagger/climb-tagger.prg \
-  -y ~/watchface/developer_key.der \
+monkeyc -f monkey.jungle \
+  -o climb-tagger.prg \
+  -y developer_key.der \
   -d instinct2
 ```
 
