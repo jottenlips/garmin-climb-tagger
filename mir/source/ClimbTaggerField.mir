@@ -1,0 +1,195 @@
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 1; @symbol_importdef<0> = [Toybox,1,7,13]; @symbol_importdef<1> = [WatchUi,1,14,21]; ]
+import Toybox.WatchUi;
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 2; @symbol_importdef<0> = [Toybox,2,7,13]; @symbol_importdef<1> = [Graphics,2,14,22]; ]
+import Toybox.Graphics;
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 3; @symbol_importdef<0> = [Toybox,3,7,13]; @symbol_importdef<1> = [FitContributor,3,14,28]; ]
+import Toybox.FitContributor;
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 4; @symbol_importdef<0> = [Toybox,4,7,13]; @symbol_importdef<1> = [Lang,4,14,18]; ]
+import Toybox.Lang;
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 5; @symbol_importdef<0> = [Toybox,5,7,13]; @symbol_importdef<1> = [Activity,5,14,22]; ]
+import Toybox.Activity;
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 6; @symbol_importdef<0> = [Toybox,6,7,13]; @symbol_importdef<1> = [Time,6,14,18]; ]
+import Toybox.Time;
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 9; ]
+enum {
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 10; @position = 4; @symbol_enumdec = [TYPE_LEAD,10,4,13]; ]
+    TYPE_LEAD = 0,
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 11; @position = 4; @symbol_enumdec = [TYPE_TR,11,4,11]; ]
+    TYPE_TR = 1,
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 12; @position = 4; @symbol_enumdec = [TYPE_AUTO,12,4,13]; ]
+    TYPE_AUTO = 2
+}
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 15; @symbol_classdef = [ClimbTaggerField,15,6,22]; @symbol_extends<0> = [WatchUi,15,31,38]; @symbol_extends<1> = [SimpleDataField,15,39,54]; ]
+class ClimbTaggerField extends WatchUi.SimpleDataField {
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 15; ]
+    <init> {
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 17 15 ]
+        symbol [ TYPE_LEAD %tmp.2 17 38 47 ];
+        %tmp.2 = getv ? :TYPE_LEAD;
+        putv self :_routeType %tmp.2;
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 22 15 ]
+        %tmp.3 = newa 3;
+        %tmp.4 = "LEAD";
+        %tmp.5 = dup %tmp.3;
+        %tmp.6 = aputv %tmp.5 0 %tmp.4;
+        %tmp.7 = "TR";
+        %tmp.8 = dup %tmp.6;
+        %tmp.9 = aputv %tmp.8 1 %tmp.7;
+        %tmp.10 = "AUTO";
+        %tmp.11 = dup %tmp.9;
+        %tmp.12 = aputv %tmp.11 2 %tmp.10;
+        putv self :_labels %tmp.12;
+    }
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 15; ]
+    static
+    <init> {
+    }
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 17; @position = 15; @symbol_vardef = [_routeType,17,15,25]; @symbol_type<0> = [Number,17,29,35]; ]
+    protected
+    var _routeType as Number;
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 18; @position = 15; @symbol_vardef = [_routeTypeField,18,15,30]; @symbol_type<0> = [FitContributor,18,34,48]; @symbol_type<1> = [Field,18,49,54]; ]
+    protected
+    var _routeTypeField as FitContributor.Field;
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 19; @position = 15; @symbol_vardef = [_lapCount,19,15,24]; @symbol_type<0> = [Number,19,28,34]; ]
+    protected
+    var _lapCount as Number = 0;
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 22; @position = 15; @symbol_vardef = [_labels,22,15,22]; @symbol_type<0> = [Array,22,26,31]; @symbol_type<1> = [String,22,32,38]; ]
+    protected
+    var _labels as Array<String>;
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 24; @symbol_functiondef = [initialize,24,13,23]; ]
+    function initialize() as Void {
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_24_26_36_4_start:
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 25 8 ]
+        symbol [ SimpleDataField %tmp.2 25 8 23 ];
+        %tmp.2 = getv ? :SimpleDataField;
+        symbol [ initialize %tmp.3 25 24 34 ];
+        %tmp.3 = getv function %tmp.2 :initialize;
+        invoke %tmp.2 %tmp.3();
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 26 8 ]
+        %tmp.4 = "Route";
+        symbol [ label ? 26 8 13 ];
+        putv self :label %tmp.4;
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 29 8 ]
+        %tmp.5 = self;
+        symbol [ createField %tmp.6 29 26 37 ];
+        %tmp.6 = getv function %tmp.5 :createField;
+        %tmp.7 = "route_type";
+        %tmp.8 = 0;
+        symbol [ FitContributor %tmp.9 32 12 26 ];
+        %tmp.9 = getm $.Toybox.FitContributor;
+        symbol [ DATA_TYPE_UINT8 %tmp.10 32 27 42 ];
+        %tmp.10 = getv %tmp.9 :DATA_TYPE_UINT8;
+        %tmp.11 = newd 2;
+        %tmp.13 = const :mesgType;
+        symbol [ mesgType %tmp.13 33 14 22 const ];
+        symbol [ FitContributor %tmp.14 33 26 40 ];
+        %tmp.14 = getm $.Toybox.FitContributor;
+        symbol [ MESG_TYPE_LAP %tmp.15 33 41 54 ];
+        %tmp.15 = getv %tmp.14 :MESG_TYPE_LAP;
+        %tmp.16 = dup %tmp.11;
+        %tmp.17 = aputv %tmp.16 %tmp.13 %tmp.15;
+        %tmp.19 = const :units;
+        symbol [ units %tmp.19 33 57 62 const ];
+        %tmp.20 = "type";
+        %tmp.21 = dup %tmp.17;
+        %tmp.22 = aputv %tmp.21 %tmp.19 %tmp.20;
+        %tmp.23 = invoke %tmp.5 %tmp.6(%tmp.7, %tmp.8, %tmp.10, %tmp.22);
+        symbol [ _routeTypeField ? 29 8 23 ];
+        putv self :_routeTypeField %tmp.23;
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 35 8 ]
+        symbol [ _routeTypeField %tmp.25 35 8 23 ];
+        %tmp.25 = getv ? :_routeTypeField;
+        symbol [ setData %tmp.26 35 24 31 ];
+        %tmp.26 = getv function %tmp.25 :setData;
+        symbol [ _routeType %tmp.28 35 32 42 ];
+        %tmp.28 = getv ? :_routeType;
+        invoke %tmp.25 %tmp.26(%tmp.28);
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_24_26_36_4_stop:
+    }
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 39; @symbol_functiondef = [compute,39,13,20]; @symbol_param<0> = [info,39,21,25]; @symbol_param<0>_type<0> = [Activity,39,29,37]; @symbol_param<0>_type<1> = [Info,39,38,42]; @symbol_return<0> = [Numeric,39,47,54]; @symbol_return<1> = [Duration,39,58,66]; @symbol_return<2> = [String,39,70,76]; ]
+    function compute(info as Activity.Info) as Numeric or Duration or String or Null {
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_39_85_41_4_start:
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 40 8 ]
+        symbol [ _labels %tmp.2 40 15 22 ];
+        %tmp.2 = getv ? :_labels;
+        symbol [ _routeType %tmp.4 40 23 33 ];
+        %tmp.4 = getv ? :_routeType;
+        %tmp.5 = agetv %tmp.2 %tmp.4;
+        ret %tmp.5;
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_39_85_41_4_stop:
+    }
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 44; @symbol_functiondef = [onTimerLap,44,13,23]; ]
+    function onTimerLap() as Void {
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_44_34_51_4_start:
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 45 8 ]
+        symbol [ _lapCount %tmp.3 45 8 17 ];
+        %tmp.3 = getv ? :_lapCount;
+        %tmp.4 = add %tmp.3 1;
+        symbol [ _lapCount ? 45 8 17 ];
+        putv self :_lapCount dup %tmp.4;
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 47 8 ]
+        symbol [ _routeTypeField %tmp.6 47 8 23 ];
+        %tmp.6 = getv ? :_routeTypeField;
+        symbol [ setData %tmp.7 47 24 31 ];
+        %tmp.7 = getv function %tmp.6 :setData;
+        symbol [ _routeType %tmp.9 47 32 42 ];
+        %tmp.9 = getv ? :_routeType;
+        invoke %tmp.6 %tmp.7(%tmp.9);
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 49 8 ]
+        symbol [ _routeType %tmp.11 49 22 32 ];
+        %tmp.11 = getv ? :_routeType;
+        %tmp.12 = 1;
+        %tmp.13 = add %tmp.11 %tmp.12;
+        %tmp.14 = 3;
+        %tmp.15 = mod %tmp.13 %tmp.14;
+        symbol [ _routeType ? 49 8 18 ];
+        putv self :_routeType %tmp.15;
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 50 8 ]
+        symbol [ _routeTypeField %tmp.17 50 8 23 ];
+        %tmp.17 = getv ? :_routeTypeField;
+        symbol [ setData %tmp.18 50 24 31 ];
+        %tmp.18 = getv function %tmp.17 :setData;
+        symbol [ _routeType %tmp.20 50 32 42 ];
+        %tmp.20 = getv ? :_routeType;
+        invoke %tmp.17 %tmp.18(%tmp.20);
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_44_34_51_4_stop:
+    }
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 54; @symbol_functiondef = [onTimerStop,54,13,24]; ]
+    function onTimerStop() as Void {
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_54_35_56_4_start:
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 55 8 ]
+        symbol [ _routeTypeField %tmp.2 55 8 23 ];
+        %tmp.2 = getv ? :_routeTypeField;
+        symbol [ setData %tmp.3 55 24 31 ];
+        %tmp.3 = getv function %tmp.2 :setData;
+        symbol [ _routeType %tmp.5 55 32 42 ];
+        %tmp.5 = getv ? :_routeType;
+        invoke %tmp.2 %tmp.3(%tmp.5);
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_54_35_56_4_stop:
+    }
+    [ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 59; @symbol_functiondef = [onTimerReset,59,13,25]; ]
+    function onTimerReset() as Void {
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_59_36_63_4_start:
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 60 8 ]
+        symbol [ TYPE_LEAD %tmp.2 60 21 30 ];
+        %tmp.2 = getv ? :TYPE_LEAD;
+        symbol [ _routeType ? 60 8 18 ];
+        putv self :_routeType %tmp.2;
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 61 8 ]
+        %tmp.3 = 0;
+        symbol [ _lapCount ? 61 8 17 ];
+        putv self :_lapCount %tmp.3;
+[ "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc" 62 8 ]
+        symbol [ _routeTypeField %tmp.5 62 8 23 ];
+        %tmp.5 = getv ? :_routeTypeField;
+        symbol [ setData %tmp.6 62 24 31 ];
+        %tmp.6 = getv function %tmp.5 :setData;
+        symbol [ _routeType %tmp.8 62 32 42 ];
+        %tmp.8 = getv ? :_routeType;
+        invoke %tmp.5 %tmp.6(%tmp.8);
+_Users_johnottenlips_jottenlips_climb_tagger_source_ClimbTaggerField_mc_59_36_63_4_stop:
+    }
+}
+[ @file = "/Users/johnottenlips/jottenlips/climb-tagger/source/ClimbTaggerField.mc"; @line = 1; ]
+<init> {
+}
